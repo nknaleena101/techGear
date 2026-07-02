@@ -1,5 +1,5 @@
-import Database from '../config/db.js';
-import { IUser } from '../types/user.js';
+import Database from '../config/db';
+import { IUser } from '../types/user';
 import bcrypt from 'bcrypt';
 
 export class UserModel {

@@ -2,6 +2,7 @@ import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import Database from './config/db';
+import authRoutes from './routes/authRoutes';
 
 dotenv.config();
 
@@ -32,6 +33,8 @@ class App {
         this.app.get('/', (req: Request, res: Response) => {
             res.send('TechGear API is running smoothly.');
         });
+
+        this.app.use('/api/auth', authRoutes);
     }
 
     public listen(): void {
