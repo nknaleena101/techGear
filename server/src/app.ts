@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Database from './config/db';
 import authRoutes from './routes/authRoutes';
+import productRoutes from './routes/productRoutes';
 
 dotenv.config();
 
@@ -35,6 +36,7 @@ class App {
         });
 
         this.app.use('/api/auth', authRoutes);
+        this.app.use('/api/products', productRoutes);
     }
 
     public listen(): void {
