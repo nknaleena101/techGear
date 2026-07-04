@@ -28,7 +28,7 @@ class ApiService {
         const params: any = {};
         if (search) params.search = search;
         if (categoryId) params.category = categoryId;
-        
+
         const response = await this.client.get<Product[]>('/products', { params });
         return response.data;
     }
@@ -42,6 +42,19 @@ class ApiService {
         const response = await this.client.get<Category[]>('/products/categories');
         return response.data;
     }
+
+
+    public async signup(name: string, email: string, password: string): Promise<any> {
+        const response = await this.client.post('/auth/signup', { name, email, password });
+        return response.data;
+    }
+
+    public async login(email: string, password: string): Promise<any> {
+        const response = await this.client.post('/auth/login', { email, password });
+        return response.data;
+    }
+
+
 }
 
 export const apiService = new ApiService();
